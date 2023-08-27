@@ -5,8 +5,10 @@ import { TypewriterComponent } from 'typewriter';
   selector: 'app-root',
   standalone: true,
   imports: [TypewriterComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <ngx-typewriter />
+  `,
+  styles: []
 })
 export class AppComponent {
   title = 'ngx-simple-typewriter';
