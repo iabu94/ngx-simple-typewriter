@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { TypewriterComponent } from 'typewriter';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [TypewriterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
