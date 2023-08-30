@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-typewriter",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "scripts": {
     "build": "npx ng-packagr -p ng-package.json"
   },

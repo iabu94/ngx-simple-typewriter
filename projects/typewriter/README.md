@@ -5,7 +5,7 @@
 [![NPM](https://img.shields.io/npm/v/ngx-simple-typewriter.svg)](https://www.npmjs.com/package/ngx-simple-typewriter) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) ![npm bundle size](https://img.shields.io/bundlephobia/min/ngx-simple-typewriter) ![GitHub](https://img.shields.io/github/license/iabu94/ngx-simple-typewriter)
 
 <p align="center">
-  <img src="./screenshot.gif" alt="screenshot" />
+  <img src="https://raw.githubusercontent.com/iabu94/ngx-simple-typewriter/master/projects/typewriter/screenshot.gif" alt="screenshot" />
 </p>
  
 ## Install
