@@ -55,6 +55,7 @@ export class AppComponent {
 | `words`          |       array       | Required | Array of strings holding the words                                                         | `['Hello', '...']` |
 | `typeSpeed`      |      number       | Optional | Character typing speed in Milliseconds                                                     |        `80`        |
 | `deleteSpeed`    |      number       | Optional | Character deleting speed in Milliseconds                                                   |        `50`        |
+| `panelClass`     |      string       | Optional | CSS classes to be applied for the typewriter text (should be in global stylesheet)         |        `''`        |
 ---
 
 ### Usage Example
@@ -70,12 +71,24 @@ import { Typewriter } from 'ngx-simple-typewriter';
   template: `
     <div class="">
       Hello there, I am
-      <ngx-typewriter [words]="words" [typeSpeed]="1000" [deleteSpeed]="100" />
+      <ngx-typewriter
+        [words]="words"
+        [typeSpeed]="1000"
+        [deleteSpeed]="100"
+        [panelClass]="'text-color'"
+      />
     </div>
   `,
 })
 export class AppComponent {
   words = ['Abdullah Mansoor', 'a Software Engineer', 'a Cricket Player'];
+}
+```
+---
+```css
+// global stylesheet (styles.scss)
+.text-color {
+    color: red;
 }
 ```
 

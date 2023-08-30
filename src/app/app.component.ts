@@ -8,7 +8,12 @@ import { Typewriter } from 'ngx-simple-typewriter';
   template: `
     <div class="">
       Hello there, I am
-      <ngx-typewriter [words]="words" [typeSpeed]="1000" [deleteSpeed]="100" />
+      <ngx-typewriter
+        [words]="words"
+        [typeSpeed]="1000"
+        [deleteSpeed]="100"
+        [panelClass]="'text-color'"
+      />
     </div>
   `,
 })
