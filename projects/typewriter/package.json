@@ -1,6 +1,20 @@
 {
   "name": "ngx-simple-typewriter",
   "version": "0.0.5",
+  "description": "A simple angular standalone component for adding a nice typewriter effect to your project.",
+  "author": {
+    "name": "Abdullah Mansoor",
+    "email": "iabu94.dev@gmail.com",
+    "url": "https://linkedin.com/in/iabu94"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iabu94/ngx-simple-typewriter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iabu94/ngx-simple-typewriter/issues"
+  },
   "scripts": {
     "build": "npx ng-packagr -p ng-package.json"
   },
