@@ -25,5 +25,31 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "keywords": [
+    "typewriter",
+    "typewriter effect",
+    "angular",
+    "ng",
+    "ngx",
+    "angular typewriter",
+    "angular typewriter effect",
+    "angular-component"
+    "ng typewriter",
+    "ng typewriter effect",
+    "ng-component"
+    "ngx typewriter",
+    "ngx typewriter effect",
+    "ngx-component"
+  ],
+  "tags": [
+    "angular",
+    "ng",
+    "ngx",
+    "typewriter-effect",
+    "typewriter",
+    "angular-component"
+    "ng-component"
+    "ngx-component"
+  ],
 }
