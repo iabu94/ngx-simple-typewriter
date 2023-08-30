@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-typewriter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple angular standalone component for adding a nice typewriter effect to your project.",
   "author": {
     "name": "Abdullah Mansoor",
@@ -34,10 +34,10 @@
     "ngx",
     "angular typewriter",
     "angular typewriter effect",
-    "angular-component"
+    "angular-component",
     "ng typewriter",
     "ng typewriter effect",
-    "ng-component"
+    "ng-component",
     "ngx typewriter",
     "ngx typewriter effect",
     "ngx-component"
@@ -48,8 +48,8 @@
     "ngx",
     "typewriter-effect",
     "typewriter",
-    "angular-component"
-    "ng-component"
+    "angular-component",
+    "ng-component",
     "ngx-component"
-  ],
+  ]
 }
