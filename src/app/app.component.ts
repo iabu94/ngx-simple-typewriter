@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { TypewriterComponent } from 'typewriter';
+import { Typewriter } from 'ngx-simple-typewriter';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TypewriterComponent],
+  imports: [Typewriter],
   template: `
-    <ngx-typewriter />
+    <div class="">
+      Hello there, I am
+      <ngx-typewriter [words]="words" [typeSpeed]="1000" [deleteSpeed]="100" />
+    </div>
   `,
-  styles: []
 })
 export class AppComponent {
-  title = 'ngx-simple-typewriter';
+  words = ['Abdullah Mansoor', 'a Software Engineer', 'a Cricket Player'];
 }
