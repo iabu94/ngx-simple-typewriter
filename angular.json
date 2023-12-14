@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-simple-typewriter:build:production"
+              "buildTarget": "ngx-simple-typewriter:build:production"
             },
             "development": {
-              "browserTarget": "ngx-simple-typewriter:build:development"
+              "buildTarget": "ngx-simple-typewriter:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-simple-typewriter:build"
+            "buildTarget": "ngx-simple-typewriter:build"
           }
         },
         "test": {
