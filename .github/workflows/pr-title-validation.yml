@@ -24,7 +24,7 @@ jobs:
           fi
 
           pr_title="${{ github.event.pull_request.title }}"
-          PR_NAME_RE="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)\(!)?: ([A-Z].*)$"
+          PR_NAME_RE="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test): ([A-Z].*)$"
           if [[ ! ${pr_title} =~ ${PR_NAME_RE} ]]; then
             echo "error: invalid PR title"
             echo "Example: feat: subject [OCH-1234]"
