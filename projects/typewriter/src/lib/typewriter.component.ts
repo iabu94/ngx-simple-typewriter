@@ -3,10 +3,7 @@ import { Component, Input, OnInit, computed, signal } from '@angular/core';
 @Component({
   selector: 'ngx-typewriter',
   standalone: true,
-  imports: [],
-  template: `
-  <span [className]="panelClass">{{text()}}</span>
-  `,
+  template: ` <span [className]="panelClass">{{ text() }}</span> `,
 })
 export class Typewriter implements OnInit {
   @Input() words = ['Hello World!', 'This is', 'a simple Typewriter'];
@@ -21,7 +18,7 @@ export class Typewriter implements OnInit {
   text = computed(() => this.word().slice(0, this.textIndex()));
 
   ngOnInit(): void {
-      this.type();
+    this.type();
   }
 
   type() {
