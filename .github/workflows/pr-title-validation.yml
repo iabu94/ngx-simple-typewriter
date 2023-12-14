@@ -1,22 +1,32 @@
-name: PR Title Check
+name: Validate PR Title
 
 on:
   pull_request:
     types:
       - opened
       - synchronize
+      - edited
+      - labeled
+      - unlabeled
 
 jobs:
-  check-pr-title:
+  Validate_PR_Title:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check PR Title
+      - name: Check PR title
         run: |
-          const titleRegex = /^(build|chore|feat|fix|refactor|test)\:\s([A-Z][a-z]+)\b/;
-          const prTitle = github.event.pull_request.title;
+          SKIP_LABEL="autorelease: pending"
+          pr_labels='${{ toJSON(github.event.pull_request.labels) }}'
 
-          if (!titleRegex.test(prTitle)) {
-            const errorMessage = "Invalid PR title. PR titles must start with one of: build, chore, feat, fix, refactor, test, followed by a colon, and then the title in sentence case (first letter capitalized).";
-            core.setFailed(errorMessage);
-          }
+          if [[ ${pr_labels} == *"${SKIP_LABEL}"* ]]; then
+            echo "Skipping PR title validation due to the presence of the '${SKIP_LABEL}' label"
+            exit 0
+          fi
+
+          pr_title="${{ github.event.pull_request.title }}"
+          PR_NAME_RE="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)\((Account|Configuration|Database|Finance|Inventory|Procurement|Sales|UI)\)(!)?: ([A-Z].*) \[O30-[0-9]+\]$"
+          if [[ ! ${pr_title} =~ ${PR_NAME_RE} ]]; then
+            echo "error: invalid PR title"
+            echo "Example: feat: subject [OCH-1234]"
+            exit 1
+          fi
