@@ -12,14 +12,11 @@ jobs:
 
     steps:
       - name: Check PR Title
-        uses: actions/github-script@7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const titleRegex = /^(build|chore|feat|fix|refactor|test)\:\s([A-Z][a-z]+)\b/;
-            const prTitle = github.event.pull_request.title;
+        run: |
+          const titleRegex = /^(build|chore|feat|fix|refactor|test)\:\s([A-Z][a-z]+)\b/;
+          const prTitle = github.event.pull_request.title;
 
-            if (!titleRegex.test(prTitle)) {
-              const errorMessage = "Invalid PR title. PR titles must start with one of: build, chore, feat, fix, refactor, test, followed by a colon, and then the title in sentence case (first letter capitalized).";
-              core.setFailed(errorMessage);
-            }
+          if (!titleRegex.test(prTitle)) {
+            const errorMessage = "Invalid PR title. PR titles must start with one of: build, chore, feat, fix, refactor, test, followed by a colon, and then the title in sentence case (first letter capitalized).";
+            core.setFailed(errorMessage);
+          }
