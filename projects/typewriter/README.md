@@ -5,7 +5,7 @@
 [![NPM](https://img.shields.io/npm/v/ngx-simple-typewriter.svg)](https://www.npmjs.com/package/ngx-simple-typewriter) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) ![npm bundle size](https://img.shields.io/bundlephobia/min/ngx-simple-typewriter) ![GitHub](https://img.shields.io/github/license/iabu94/ngx-simple-typewriter)
 
 <p align="center">
-  <img src="./screenshot.gif" alt="screenshot" />
+  <img src="https://raw.githubusercontent.com/iabu94/ngx-simple-typewriter/master/projects/typewriter/screenshot.gif" alt="screenshot" />
 </p>
  
 ## Install
@@ -26,198 +26,76 @@ yarn add ngx-simple-typewriter
 
 ## Usage
 
-You can use the standalone `TypewriterComponent` in your project.
+You can use the standalone `Typewriter` component in your project.
 
 ## 1. Component
 
 ```typescript
 import { Component } from '@angular/core';
-import { TypewriterComponent } from 'ngx-simple-typewriter';
+import { Typewriter } from 'ngx-simple-typewriter';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TypewriterComponent],
+  imports: [Typewriter],
   template: `
     <ngx-typewriter />
   `,
   styles: []
 })
 export class AppComponent {
-  title = 'ngx-simple-typewriter';
 }
 
 ```
 
-### Component Props
+### Component Input Properties
 
 | Prop             |       Type        | Options  | Description                                                                                |      Default       |
 | ---------------- | :---------------: | -------- | ------------------------------------------------------------------------------------------ | :----------------: |
 | `words`          |       array       | Required | Array of strings holding the words                                                         | `['Hello', '...']` |
 | `typeSpeed`      |      number       | Optional | Character typing speed in Milliseconds                                                     |        `80`        |
 | `deleteSpeed`    |      number       | Optional | Character deleting speed in Milliseconds                                                   |        `50`        |
-| `delaySpeed`     |      number       | Optional | Delay time between the words in Milliseconds                                               |       `1500`       |
-| `loop`           | number \| boolean | Optional | Control how many times to run. `0 \| false` to run infinitely                              |        `1`         |
-| `cursor`         |      boolean      | Optional | Show / Hide a cursor                                                                       |      `false`       |
-| `cursorStyle`    |     ReactNode     | Optional | Change the cursor style available if `cursor` is `enabled`                                 |        `\|`        |
-| `cursorBlinking` |      boolean      | Optional | Enable cursor blinking animation                                                           |        `true`      |
-| `onLoopDone`     |     function      | Optional | Callback function that is triggered when loops are completed. available if `loop` is `> 0` |        `-`         |
-| `onType`         |     function      | Optional | Callback function that is triggered while typing with typed words `count` passed           |        `-`         |
-| `onDelay`        |     function      | Optional | Callback function that is triggered on typing delay                                        |        `-`         |
-| `onDelete`       |     function      | Optional | Callback function that is triggered while deleting                                         |        `-`         |
-
+| `panelClass`     |      string       | Optional | CSS classes to be applied for the typewriter text (should be in global stylesheet)         |        `''`        |
 ---
 
 ### Usage Example
 
-```jsx
-import React from 'react'
-import { Typewriter } from 'react-simple-typewriter'
+```ts
+import { Component } from '@angular/core';
+import { Typewriter } from 'ngx-simple-typewriter';
 
-const MyComponent = () => {
-
-  const handleType = (count: number) => {
-    // access word count number
-    console.log(count)}
-  }
-
-  const handleDone = () => {
-    console.log(`Done after 5 loops!`)
-  }
-
-  return (
-    <div className='App'>
-      <h1 style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
-        Life is simple{' '}
-        <span style={{ color: 'red', fontWeight: 'bold' }}>
-          {/* Style will be inherited from the parent element */}
-          <Typewriter
-            words={['Eat', 'Sleep', 'Code', 'Repeat!']}
-            loop={5}
-            cursor
-            cursorStyle='_'
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-            onLoopDone={handleDone}
-            onType={handleType}
-          />
-        </span>
-      </h1>
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [Typewriter],
+  template: `
+    <div class="">
+      Hello there, I am
+      <ngx-typewriter
+        [words]="words"
+        [typeSpeed]="1000"
+        [deleteSpeed]="100"
+        [panelClass]="'text-color'"
+      />
     </div>
-  )
+  `,
+})
+export class AppComponent {
+  words = ['Abdullah Mansoor', 'a Software Engineer', 'a Cricket Player'];
 }
 ```
-
-## 2. Hook
-
-**BREAKING CHANGES v5.0.0** Hook now returns `text` along with some useful `flags`:
-
-| Prop       |  Type   | Description                         |
-| ---------- | :-----: | ----------------------------------- |
-| `isType`   | boolean | Check if currently typing           |
-| `isDelete` | boolean | Check if currently deleting         |
-| `isDelay`  | boolean | Check if currently on delay         |
-| `isDone`   | boolean | Check if all running loops are done |
-
-```jsx
-import { useTypewriter } from 'react-simple-typewriter'
-
-const MyComponent = () => {
-  /**
-   * @returns
-   * text: [string] typed text
-   * NEW helper: {} helper flags
-   */
-  const [text, helper] = useTypewriter({
-    /* Config */
-  })
-
-  /* Hook helper */
-  const { isType, isDelete, isDelay, isDone } = helper
-
-  return (
-    <div className='App'>
-      <span>{text}</span>
-    </div>
-  )
-}
-```
-
-### Hook Config
-
-| Prop          |       Type        | Options  | Description                                                                                |      Default       |
-| ------------- | :---------------: | -------- | ------------------------------------------------------------------------------------------ | :----------------: |
-| `words`       |       array       | Required | Array of strings holding the words                                                         | `['Hello', '...']` |
-| `typeSpeed`   |      number       | Optional | Character typing speed in Milliseconds                                                     |        `80`        |
-| `deleteSpeed` |      number       | Optional | Character deleting speed in Milliseconds                                                   |        `50`        |
-| `delaySpeed`  |      number       | Optional | Delay time between the words in Milliseconds                                               |       `1500`       |
-| `loop`        | number \| boolean | Optional | Control how many times to run. `0 \| false` to run infinitely                              |        `1`         |
-| `onLoopDone`  |     function      | Optional | Callback function that is triggered when loops are completed. available if `loop` is `> 0` |        `-`         |
-| `onType`      |     function      | Optional | Callback function that is triggered while typing                                           |        `-`         |
-| `onDelete`    |     function      | Optional | Callback function that is triggered while deleting                                         |        `-`         |
-| `onDelay`     |     function      | Optional | Callback function that is triggered on typing delay                                        |        `-`         |
-
-### Hook Usage Example
-
-```jsx
-import React from 'react'
-import { useTypewriter } from 'react-simple-typewriter'
-
-const MyComponent = () => {
-  const [text] = useTypewriter({
-    words: ['Hello', 'From', 'Typewriter', 'Hook!'],
-    loop: 0
-  })
-
-  return (
-    <div className='App'>
-      <span>{text}</span>
-    </div>
-  )
-}
-```
-
-### Hook with Cursor
-
-If you like to have the **Cursor** effect, you can `import` it as a separate `Component`
-
-```jsx
-import React from 'react'
-import { useTypewriter, Cursor } from 'react-simple-typewriter'
-
-const MyComponent = () => {
-  const [text] = useTypewriter({
-    words: ['Hello', 'From', 'Typewriter', 'Hook!'],
-    loop: 3,
-    onLoopDone: () => console.log(`loop completed after 3 runs.`)
-  })
-
-  return (
-    <div className='App'>
-      <span>{text}</span>
-      <Cursor cursorColor='red' />
-    </div>
-  )
-}
-```
-
-### Cursor Component Props
-
-| Prop             |   Type    | Options  | Description                       |  Default  |
-| ---------------- | :-------: | -------- | --------------------------------- | :-------: |
-| `cursorStyle`    | ReactNode | Optional | Change cursor style               |   `\|`    |
-| `cursorColor`    |  String   | Optional | Change cursor color               | `inherit` |
-| `cursorBlinking` |  Boolean  | Optional | disable cursor blinking animation |  `true`   |
-
 ---
+```css
+// global stylesheet (styles.scss)
+.text-color {
+    color: red;
+}
+```
 
-### [Demo](https://react-simple-typewriter.vercel.app/)
+### [Demo] - Not yet
 
 <br />
 
-[![Edit react-simple-typewriter](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-simple-typewriter-uj8ix)
-
 ### License
 
-MIT © [awran5](https://github.com/awran5/)
+MIT © [iabu94](https://github.com/iabu94/)
