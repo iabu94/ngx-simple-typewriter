@@ -1,19 +1,25 @@
-name: Validate PR Title
+name: PR Title Check
 
-on: 
-  pull_request: 
-    types: 
+on:
+  pull_request:
+    types:
       - opened
+      - synchronize
 
 jobs:
-  Validate_PR_Title:
+  check-pr-title:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check PR Title
-        run: |
-          pr_title="${{ github.event.pull_request.title }}"
-          condition="^(build|chore|feat|fix|refactor|test)(!)?: ([A-Z].*)$"
-          if [[ ! ${pr_title} =~ ${condition} ]]; then
-            echo "error: invalid pr title
-            exit 1
-          fi
+        uses: actions/github-script@0.12.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const titleRegex = /^(build|chore|feat|fix|refactor|test)\:\s([A-Z][a-z]+)\b/;
+            const prTitle = github.event.pull_request.title;
+
+            if (!titleRegex.test(prTitle)) {
+              const errorMessage = "Invalid PR title. PR titles must start with one of: build, chore, feat, fix, refactor, test, followed by a colon, and then the title in sentence case (first letter capitalized).";
+              core.setFailed(errorMessage);
+            }
