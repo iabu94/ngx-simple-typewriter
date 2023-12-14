@@ -1,19 +1,32 @@
 name: Validate PR Title
 
-on: 
-  pull_request: 
-    types: 
+on:
+  pull_request:
+    types:
       - opened
+      - synchronize
+      - edited
+      - labeled
+      - unlabeled
 
 jobs:
   Validate_PR_Title:
     runs-on: ubuntu-latest
     steps:
-      - name: Check PR Title
+      - name: Check PR title
         run: |
+          SKIP_LABEL="autorelease: pending"
+          pr_labels='${{ toJSON(github.event.pull_request.labels) }}'
+
+          if [[ ${pr_labels} == *"${SKIP_LABEL}"* ]]; then
+            echo "Skipping PR title validation due to the presence of the '${SKIP_LABEL}' label"
+            exit 0
+          fi
+
           pr_title="${{ github.event.pull_request.title }}"
-          condition="^(build|chore|feat|fix|refactor|test)(!)?: ([A-Z].*)$"
-          if [[ ! ${pr_title} =~ ${condition} ]]; then
-            echo "error: invalid pr title
+          PR_NAME_RE="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test): ([A-Z].*)$"
+          if [[ ! ${pr_title} =~ ${PR_NAME_RE} ]]; then
+            echo "error: PR title does not match the format. It should be in the form of: <type>: <subject>"
+            echo "Example: feat: Created typing effect"
             exit 1
           fi
