@@ -20,7 +20,7 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v4
         with:
-          path: ~/.yarn
+          path: ~/.npm
           key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-
