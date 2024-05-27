@@ -15,7 +15,7 @@ describe('AppComponent', () => {
   it(`should have the 'ngx-simple-typewriter' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngx-simple-typewriter');
+    expect('app.title').toEqual('ngx-simple-typewriter');
   });
 
   it('should render title', () => {
