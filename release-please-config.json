@@ -10,7 +10,7 @@
       "extra-files": [
         {
           "type":"json",
-          "path":"Web/package.json",
+          "path":"projects/typewriter/package.json",
           "jsonpath":"$.version"
         }
       ]
