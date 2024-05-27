@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/iabu94/ngx-simple-typewriter/compare/v1.0.0...v1.1.0) (2024-05-27)
+
+
+### Features
+
+* added build script for typewriter component ([985f336](https://github.com/iabu94/ngx-simple-typewriter/commit/985f336f71a434c0f23e7716cb27f770f2383d00))
+
+
+### Bug Fixes
+
+* updated the release please config ([8cd0b27](https://github.com/iabu94/ngx-simple-typewriter/commit/8cd0b2702be7b4002dddf6ea20d3b7ebe7a4f80c))
+
 ## 1.0.0 (2024-05-27)
 
 
