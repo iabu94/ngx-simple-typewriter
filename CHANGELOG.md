@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.0.0](https://github.com/iabu94/ngx-simple-typewriter/compare/v1.1.0...v2.0.0) (2024-05-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* update the angular version v18
+
+### Features
+
+* added build pipeline ([0fba72c](https://github.com/iabu94/ngx-simple-typewriter/commit/0fba72c5e9f8d41072bdcf8f16cdb0253df1b687))
+
+
+### Bug Fixes
+
+* package update ([aa37e71](https://github.com/iabu94/ngx-simple-typewriter/commit/aa37e71566bf1dc66dab4b525ab93f2ff8b80bcb))
+* unit test fix app component ([8440dfb](https://github.com/iabu94/ngx-simple-typewriter/commit/8440dfbdc8c6e518eef213e4e372d1fb36552b7d))
+* update extra file ([ed899d9](https://github.com/iabu94/ngx-simple-typewriter/commit/ed899d9655c781c4d90220021f7e692f6626ae8c))
+* update script for build ([625378d](https://github.com/iabu94/ngx-simple-typewriter/commit/625378de978dd1a4f5e724e280f5100e9ccee46d))
+* updated cache path ([5f0fb10](https://github.com/iabu94/ngx-simple-typewriter/commit/5f0fb10e4d166f1cae5cbeec1815b2c222fa69ec))
+
+
+### Build System
+
+* update the angular version v18 ([b2b858e](https://github.com/iabu94/ngx-simple-typewriter/commit/b2b858e68dc137b7768027b0e50b131342a71ce6))
+
 ## [1.1.0](https://github.com/iabu94/ngx-simple-typewriter/compare/v1.0.0...v1.1.0) (2024-05-27)
 
 
