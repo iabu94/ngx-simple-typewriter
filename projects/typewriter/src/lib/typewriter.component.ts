@@ -9,7 +9,7 @@ export class Typewriter implements OnInit {
   @Input() words = ['Hello World!', 'This is', 'a simple Typewriter'];
   @Input() typeSpeed = 80;
   @Input() deleteSpeed = 50;
-  @Input() panelClass = '';
+  @Input() panelClass = 'test';
 
   wordIndex = signal(0);
   word = computed(() => this.words[this.wordIndex()]);
