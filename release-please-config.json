@@ -12,6 +12,11 @@
           "type":"json",
           "path":"projects/typewriter/package.json",
           "jsonpath":"$.version"
+        },
+        {
+          "type":"json",
+          "path":"package.json",
+          "jsonpath":"$.version"
         }
       ]
     }
